@@ -1,0 +1,42 @@
+name: Test AWS Bedrock Agent
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read   # Required for actions/checkout
+
+jobs:
+  evaluate-agent:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: arn:aws:iam::438465137422:role/GitHubActionsOIDCRole
+        aws-region: us-east-1
+
+    - name: Install Dependencies
+      run: |
+        python3 -m venv .venv
+        source .venv/bin/activate
+        pip install agent-evaluation
+
+    - name: Run Agent Evaluation Tests
+      run: |
+        source .venv/bin/activate
+        agent-evaluation --config test-plans/agent-test.yaml --output results/
+
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: agent-evaluation-results
+        path: results/

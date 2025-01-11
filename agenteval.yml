@@ -2,8 +2,8 @@ evaluator:
   model: claude-3
 target:
   type: bedrock-agent
-  bedrock_agent_id: null
-  bedrock_agent_alias_id: null
+  bedrock_agent_id: 9YPRBXYN2H
+  bedrock_agent_alias_id: SBRZDNXQ9T
 tests:
   retrieve_missing_documents:
     steps:
