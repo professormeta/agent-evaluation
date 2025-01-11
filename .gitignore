@@ -3,7 +3,6 @@
 
 # ignore test plan and summary at root
 agenteval_traces/
-agenteval.yml
 agenteval_summary.md
 
 # Byte-compiled / optimized / DLL files
