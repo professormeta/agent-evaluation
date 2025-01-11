@@ -1,6 +1,7 @@
 name: Test AWS Bedrock Agent
 
 on:
+  workflow_dispatch: # Allows you to manually trigger this workflow
   push:
     branches:
       - main
