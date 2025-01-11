@@ -1,0 +1,12 @@
+evaluator:
+  model: claude-3
+target:
+  type: bedrock-agent
+  bedrock_agent_id: null
+  bedrock_agent_alias_id: null
+tests:
+  retrieve_missing_documents:
+    steps:
+    - Ask agent for a list of missing documents for claim-006.
+    expected_results:
+    - The agent returns a list of missing documents.
