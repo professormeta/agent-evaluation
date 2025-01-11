@@ -1,0 +1,41 @@
+name: Initialize Agent Evaluation Framework
+
+on:
+  workflow_dispatch: # Allows you to manually trigger this workflow
+
+jobs:
+  initialize-config:
+    runs-on: ubuntu-latest # Use a Linux runner
+
+    steps:
+      # Step 1: Checkout Repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set Up Python Environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # Step 3: Install Dependencies
+      - name: Install dependencies
+        run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
+          pip install -r requirements.txt
+
+      # Step 4: Run agenteval init Command
+      - name: Initialize Agent Evaluation Framework
+        run: |
+          source .venv/bin/activate
+          agenteval init
+
+      # Step 5: Commit Generated File (Optional)
+      - name: Commit and Push agenteval.yml
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add agenteval.yml
+          git commit -m "Initialize agenteval.yml"
+          git push origin ${{ github.ref }}
