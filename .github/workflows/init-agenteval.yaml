@@ -12,30 +12,32 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set Up Python Environment
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      # Step 3: Install Dependencies
-      - name: Install dependencies
+      # Step 2: Set Up Python Environment and Install Dependencies
+      - name: Set up Python and Install Dependencies
         run: |
           python3 -m venv .venv
           source .venv/bin/activate
-          pip install -r requirements.txt
+          pip install --upgrade pip
+          pip install -r requirements.txt || echo "No requirements file found"
+          pip install .
 
-      # Step 4: Run agenteval init Command
+      # Step 3: Verify agenteval Installation
+      - name: Verify agenteval installation
+        run: |
+          source .venv/bin/activate
+          agenteval --help
+
+      # Step 4: Run agenteval init Command (Generate Configuration File)
       - name: Initialize Agent Evaluation Framework
         run: |
           source .venv/bin/activate
           agenteval init
 
-      # Step 5: Commit Generated File (Optional)
+      # Step 5 (Optional): Commit Generated File Back to Repository
       - name: Commit and Push agenteval.yml
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add agenteval.yml
-          git commit -m "Initialize agenteval.yml"
-          git push origin ${{ github.ref }}
+          git add agenteval.yml || echo "No changes to commit"
+          git commit -m "Initialize agenteval.yml" || echo "Nothing to commit"
+          git push origin ${{ github.ref }} || echo "Nothing to push"
