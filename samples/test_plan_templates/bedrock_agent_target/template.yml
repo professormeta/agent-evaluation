@@ -5,7 +5,7 @@ target:
   bedrock_agent_id: BEDROCK_AGENT_ID
   type: bedrock-agent
 tests:
-  CustomerInteractionsTest:
+  InStockCardTest:
     expected_results:
     - The agent returns a yes with quantity and price of the card
     steps:
@@ -15,3 +15,8 @@ tests:
     - The agent returns with no events scheduled 
     steps:
     - When is the next event?
+  OutofStockCardTest:
+    expected_results:
+    - The agent returns a no and politely lets the user know the card is out of stock
+    steps:
+    - Do you have OP01-101 in stock?
