@@ -12,7 +12,7 @@ permissions:
   contents: read   # Required for actions/checkout
 
 env:
-  AWS_REGION: us-east-1 # Set your AWS region here (e.g., us-east-1)
+  AWS_REGION: ${{ vars.AWS_REGION }} # Set your AWS region here (e.g., us-east-1)
 
 jobs:
   evaluate-agent:
@@ -25,8 +25,8 @@ jobs:
     - name: Configure AWS Credentials via OIDC
       uses: aws-actions/configure-aws-credentials@v2
       with:
-        role-to-assume: arn:aws:iam::438465137422:role/GitHubActionsOIDCRole
-        aws-region: us-east-1
+        role-to-assume: ${{ vars.AWS_ROLE }}
+        aws-region: ${{ vars.AWS_REGION }}
 
     # Hello from AWS: WhoAmI
     - name: Sts GetCallerIdentity
