@@ -36,7 +36,6 @@ jobs:
 
     - name: Run Test Command
       run: |
-        aws sts get-caller-identity # Verify credentials
         aws bedrock invoke-model \
           --model-id anthropic.claude-3-haiku-20240307-v1:0 \
           --region us-east-1 \
