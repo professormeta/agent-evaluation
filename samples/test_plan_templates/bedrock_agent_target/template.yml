@@ -7,6 +7,6 @@ target:
 tests:
   CustomerInteractionsTest:
     expected_results:
-    - The agent returns the last 3 recent interactions with the customer.
+    - The agent returns a yes with quantity and price of the card
     steps:
-    - List the last 3 recent interactions for customer C-abc123.
+    - Do you have OP01-100 in stock?
