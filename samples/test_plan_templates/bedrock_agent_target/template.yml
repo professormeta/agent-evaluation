@@ -10,3 +10,8 @@ tests:
     - The agent returns a yes with quantity and price of the card
     steps:
     - Do you have OP01-100 in stock?
+  EventsTest:
+    expected_results:
+    - The agent returns with a date and time
+    steps:
+    - When is the next event?
