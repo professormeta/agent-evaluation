@@ -17,7 +17,7 @@ env:
 jobs:
   evaluate-agent:
     runs-on: ubuntu-latest
-    if: github.actor == 'helloworld' || github.actor == 'chrissandico'
+    if: github.actor == 'professormeta' || github.actor == 'chrissandico'
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
