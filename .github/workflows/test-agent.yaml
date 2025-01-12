@@ -51,8 +51,10 @@ jobs:
     - name: Test Bedrock Agent
       id: test-bedrock-agent
       env:
-        BEDROCK_AGENT_ALIAS_ID: ${{ vars.BEDROCK_AGENT_ALIAS_ID }}
-        BEDROCK_AGENT_ID: ${{ vars.BEDROCK_AGENT_ID }}
+        #BEDROCK_AGENT_ALIAS_ID: ${{ vars.BEDROCK_AGENT_ALIAS_ID }}
+        #BEDROCK_AGENT_ID: ${{ vars.BEDROCK_AGENT_ID }}
+        BEDROCK_AGENT_ALIAS_ID: SBRZDNXQ9T
+        BEDROCK_AGENT_ID: 9YPRBXYN2H
       run: |
         source .venv/bin/activate
         mkdir -p results/
