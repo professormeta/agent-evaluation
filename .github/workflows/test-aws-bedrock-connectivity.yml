@@ -2,9 +2,9 @@ name: Test AWS Bedrock Agent Connectivity
 
 on:
   workflow_dispatch: # Allows you to manually trigger this workflow
-  push:
-    branches:
-      - main
+  #push:
+    #branches:
+      #- main
   #pull_request:
 
 permissions:
