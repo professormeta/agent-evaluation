@@ -5,14 +5,14 @@ on:
   push:
     branches:
       - main
-  pull_request:
-
-env:
-  AWS_REGION: us-east-1      
+  #pull_request:
 
 permissions:
-  id-token: write
-  contents: read
+  id-token: write  # Required for OIDC
+  contents: read   # Required for actions/checkout
+
+env:
+  AWS_REGION: us-east-1 # Set your AWS region here (e.g., us-east-1)
 
 jobs:
   evaluate-agent:
@@ -22,17 +22,18 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: configure aws credentials
-      uses: aws-actions/configure-aws-credentials@v4.0.2
+    - name: Configure AWS Credentials via OIDC
+      uses: aws-actions/configure-aws-credentials@v2
       with:
-        role-to-assume: ${{ vars.ACTION_EXECUTE_IAM_ROLE_ARN }}
-        role-session-name: GitHub_to_AWS_via_FederatedOIDC
-        aws-region: ${{ env.AWS_REGION }}
-        
+        role-to-assume: arn:aws:iam::438465137422:role/GitHubActionsOIDCRole
+        aws-region: us-east-1
+
     # Hello from AWS: WhoAmI
     - name: Sts GetCallerIdentity
       run: |
         aws sts get-caller-identity
+
+
     - name: Run Test Command
       run: |
         aws sts get-caller-identity # Verify credentials
