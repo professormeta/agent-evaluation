@@ -33,10 +33,12 @@ jobs:
       run: |
         aws sts get-caller-identity
 
-
     - name: Run Test Command
       run: |
         aws bedrock-runtime invoke-model \
           --model-id anthropic.claude-3-haiku-20240307-v1:0 \
           --region us-east-1 \
-          --body '{"inputText":"Hello, how are you?"}'
+          --body '{"inputText":"Hello, how are you?"}' \
+          --content-type application/json \
+          --cli-binary-format raw-in-base64-out \
+          invoke-model-output.txt
