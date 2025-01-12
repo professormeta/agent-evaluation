@@ -40,4 +40,5 @@ jobs:
           --region us-east-1 \
           --body '{"prompt":"Human: Hello, how are you?\n\nAssistant:","max_tokens_to_sample":200,"temperature":0.5,"stop_sequences":["\n\nHuman:"]}' \
           --content-type application/json \
-          --cli-binary-format raw-in-base64-out
+          --cli-binary-format raw-in-base64-out \
+          response.json
