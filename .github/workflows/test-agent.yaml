@@ -25,8 +25,8 @@ jobs:
     - name: Configure AWS Credentials via OIDC
       uses: aws-actions/configure-aws-credentials@v2
       with:
-        role-to-assume: arn:aws:iam::438465137422:role/GitHubActionsOIDCRole
-        aws-region: us-east-1
+        role-to-assume: ${{ vars.AWS_ROLE }}
+        aws-region: ${{ vars.AWS_REGION }}
 
     # Hello from AWS: WhoAmI
     - name: Sts GetCallerIdentity
@@ -51,10 +51,8 @@ jobs:
     - name: Test Bedrock Agent
       id: test-bedrock-agent
       env:
-        #BEDROCK_AGENT_ALIAS_ID: ${{ vars.BEDROCK_AGENT_ALIAS_ID }}
-        #BEDROCK_AGENT_ID: ${{ vars.BEDROCK_AGENT_ID }}
-        BEDROCK_AGENT_ALIAS_ID: SBRZDNXQ9T
-        BEDROCK_AGENT_ID: 9YPRBXYN2H
+        BEDROCK_AGENT_ALIAS_ID: ${{ vars.BEDROCK_AGENT_ALIAS_ID }}
+        BEDROCK_AGENT_ID: ${{ vars.BEDROCK_AGENT_ID }}
       run: |
         source .venv/bin/activate
         mkdir -p results/
