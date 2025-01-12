@@ -38,7 +38,6 @@ jobs:
         aws bedrock-runtime invoke-model \
           --model-id anthropic.claude-3-haiku-20240307-v1:0 \
           --region us-east-1 \
-          --body '{"inputText":"Hello, how are you?"}' \
+          --body '{"prompt":"Human: Hello, how are you?\n\nAssistant:","max_tokens_to_sample":200,"temperature":0.5,"stop_sequences":["\n\nHuman:"]}' \
           --content-type application/json \
-          --cli-binary-format raw-in-base64-out \
-          invoke-model-output.txt
+          --cli-binary-format raw-in-base64-out
