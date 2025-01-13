@@ -19,4 +19,4 @@ tests:
     expected_results:
     - The agent returns a no and politely lets the user know the card is out of stock
     steps:
-    - Do you have OP01-101 in stock?
+    - Do you have OP01-107 in stock?
