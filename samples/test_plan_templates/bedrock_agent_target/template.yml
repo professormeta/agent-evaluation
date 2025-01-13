@@ -20,3 +20,53 @@ tests:
     - The agent returns a no and politely lets the user know the card is out of stock
     steps:
     - Do you have OP01-101 in stock?
+  PriceCheckTest:
+    expected_results:
+    - The agent returns the price of the card or deck
+    steps:
+    - How much is OP01-100?
+  DeckAvailabilityTest:
+    expected_results:
+    - The agent confirms the availability of the deck
+    steps:
+    - Do you have the One Piece starter deck in stock?
+  CardDetailsTest:
+    expected_results:
+    - The agent provides details about the card including rarity and condition
+    steps:
+    - Can you tell me about OP01-100?
+  PurchaseCardTest:
+    expected_results:
+    - The agent assists with the purchase process of the card
+    steps:
+    - I want to buy OP01-100
+  ShippingInfoTest:
+    expected_results:
+    - The agent provides shipping information and estimated delivery time
+    steps:
+    - How long will it take to ship OP01-100?
+  ReturnPolicyTest:
+    expected_results:
+    - The agent explains the return policy for the cards
+    steps:
+    - What is your return policy for trading cards?
+  BulkPurchaseTest:
+    expected_results:
+    - The agent provides information on discounts or offers for bulk purchases
+    steps:
+    - Do you offer any discounts for buying multiple cards?
+  NewArrivalsTest:
+    expected_results:
+    - The agent informs about the latest arrivals in the store
+    steps:
+    - What are the new One Piece cards you have in stock?
+  CardConditionTest:
+    expected_results:
+    - The agent confirms the condition of the card (e.g., mint, near mint)
+    steps:
+    - What is the condition of OP01-100?
+  PaymentMethodsTest:
+    expected_results:
+    - The agent lists the available payment methods
+    steps:
+    - What payment methods do you accept?
