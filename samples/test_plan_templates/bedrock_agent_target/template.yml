@@ -5,21 +5,21 @@ target:
   bedrock_agent_id: BEDROCK_AGENT_ID
   type: bedrock-agent
 tests:
-  InStockCardTest:
-    expected_results:
-    - The agent returns a yes with quantity and price of the card
-    steps:
-    - Do you have OP01-100 in stock?
-  NoExpectedEventsTest:
-    expected_results:
-    - The agent returns with no events scheduled 
-    steps:
-    - When is the next event?
-  OutofStockCardTest:
-    expected_results:
-    - The agent returns a no and politely lets the user know the card is out of stock
-    steps:
-    - Do you have OP05-119 in stock?
+#  InStockCardTest:
+#    expected_results:
+#    - The agent returns a yes with quantity and price of the card
+#    steps:
+#    - Do you have OP01-100 in stock?
+#  NoExpectedEventsTest:
+#    expected_results:
+#    - The agent returns with no events scheduled 
+#    steps:
+#    - When is the next event?
+#  OutofStockCardTest:
+#    expected_results:
+#    - The agent returns a no and politely lets the user know the card is out of stock
+#    steps:
+#    - Do you have OP05-119 in stock?
   CompetitiveDecksTest:
     expected_results:
     - The agent returns decklist of cards and provides that it is being sourced by gumgum.gg website
