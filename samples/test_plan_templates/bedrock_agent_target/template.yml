@@ -19,4 +19,10 @@ tests:
     expected_results:
     - The agent returns a no and politely lets the user know the card is out of stock
     steps:
-    - Do you have OP01-107 in stock?
+    - Do you have OP05-119 in stock?
+  CompetitiveDecksTest:
+    expected_results:
+    - The agent returns decklist of cards and provides that it is being sourced by gumgum.gg website
+    steps:
+    - Give me a Shanks competitive deck from the OP09 format from the recent Mexico City Championship on Jan 11th
+     
