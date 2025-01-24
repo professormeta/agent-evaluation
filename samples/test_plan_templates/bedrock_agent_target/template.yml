@@ -20,9 +20,13 @@ tests:
 #    - The agent returns a no and politely lets the user know the card is out of stock
 #    steps:
 #    - Do you have OP05-119 in stock?
-  CompetitiveDecksTest:
+  CompetitiveDecksWestTest:
     expected_results:
-    - The agent returns decklist of cards and provides that it is being sourced by gumgum.gg website
+    - The agent returns decklist of cards from the leader Donquixote Doflamingo (card id OP01-060) and provides that it is being sourced by gumgum.gg website (card id OP09-001
     steps:
-    - Give me a OP09-001 leader competitive deck from the OP09 set from from the west region in a recent tournament
-     
+    - Give me a competitive OP01-060 leader decklist from a recent tournament in Florida in the OP09 format
+  CompetitiveDecksEastTest:
+    expected_results:
+    - The agent returns decklist of cards from the leader Shanks (card id OP09-001) and provides that it is being sourced by gumgum.gg website (card id OP09-001
+    steps:
+    - Give me a competitive OP09-001 leader decklist from a recent tournament in Japan in the OP10 format
