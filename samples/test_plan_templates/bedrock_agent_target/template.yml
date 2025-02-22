@@ -22,11 +22,36 @@ tests:
 #    - Do you have OP05-119 in stock?
   CompetitiveDecksWestTest:
     expected_results:
-    - The agent returns decklist of cards from the leader Donquixote Doflamingo (card id OP01-060) and provides that it is being sourced by gumgum.gg website (card id OP09-001
+    - The agent returns decklist of cards from the leader Donquixote Doflamingo (card id OP01-060) and provides that it is being sourced by gumgum.gg website.  The decklist is from any tournament played in a North American country.
     steps:
-    - Give me a competitive OP01-060 leader decklist from a recent tournament in Florida in the OP09 format
+    - Give me a competitive OP01-060 leader decklist from a recent tournament in the west
+
   CompetitiveDecksEastTest:
     expected_results:
-    - The agent returns decklist of cards from the leader Shanks (card id OP09-001) and provides that it is being sourced by gumgum.gg website (card id OP09-001
+    - The agent returns decklist of cards from the leader Shanks (card id OP09-001) and provides that it is being sourced by gumgum.gg website.  The decklist is from any tournament from an Asian country.
     steps:
-    - Give me a competitive OP09-001 leader decklist from a recent tournament in Japan in the OP10 format
+    - Give me a competitive OP09-001 leader decklist from a recent tournament in east
+
+  CompetitiveDecksWildCardLeaderTest:
+    expected_results:
+    - The agent returns decklist of cards from the leader Luffy (card id ST13-003) and provides that it is being sourced by gumgum.gg website
+    steps:
+    - Give me a BY Luffy decklist from a recent tournament in the west
+
+  CompetitiveDecksWildCardLeader2Test:
+    expected_results:
+      - The agent returns decklist of cards from the leader Donquixote Doflamingo (card id OP01-060) and provides that it is being sourced by gumgum.gg website
+    steps:
+    - Give me a Blue Doffy decklist from a recent tournament in the eest
+
+  CheckCardPriceNoStockTest:
+    expected_results:
+    - The agent returns the market price of the card and not the store price of the card because it is not in stock.  The agent must mention it is not in stock.
+    steps:
+    - Do you have OP05-119 in stock?
+
+  CheckCardPriceInStockTest:
+    expected_results:
+      - The agent returns the market price of the card and the store price of the card because it is in stock.  The agent must mention it is in stock.
+    steps:
+      - Do you have OP01-100 in stock?
