@@ -45,7 +45,7 @@ jobs:
       run: |
         source .venv/bin/activate
         pip install --upgrade pip setuptools wheel
-        pip install agent-evaluation
+        pip install agent-evaluation==0.3
         pip show agent-evaluation || { echo "Error: agent-evaluation installation failed."; exit 1; }
 
     - name: Test Bedrock Agent
