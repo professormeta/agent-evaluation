@@ -44,6 +44,7 @@ jobs:
     - name: Activate Virtual Environment and Install Dependencies
       run: |
         source .venv/bin/activate
+        pip install -r requirements.txt --upgrade
         pip install --upgrade pip setuptools wheel
         pip install agent-evaluation
         pip show agent-evaluation || { echo "Error: agent-evaluation installation failed."; exit 1; }
