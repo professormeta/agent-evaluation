@@ -53,6 +53,7 @@ jobs:
       env:
         BEDROCK_AGENT_ALIAS_ID: ${{ vars.BEDROCK_AGENT_ALIAS_ID }}
         BEDROCK_AGENT_ID: ${{ vars.BEDROCK_AGENT_ID }}
+        MODEL: ${{ vars.MODEL}}
       run: |
         source .venv/bin/activate
         mkdir -p results/
