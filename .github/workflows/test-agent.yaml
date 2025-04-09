@@ -61,12 +61,12 @@ jobs:
         grep "model:" agenteval.yml
         agenteval run
 
-    - name: Upload Test Results
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: agent-evaluation-results
-        path: results/
+#    - name: Upload Test Results
+#      if: always()
+#      uses: actions/upload-artifact@v3
+#      with:
+#        name: agent-evaluation-results
+#        path: results/
 
     - name: Append Test Summary to Job Summary
       if: always()
